@@ -1,0 +1,21 @@
+package Programs;
+
+public class Main_class {
+
+	public static void main(String[] args) {
+		
+		Calculator_class ss =new Calculator_class();
+		System.out.println("Java Terminal based Calculator\n"
+				+"*********************************\n"
+				+ "Select the operation to perform\n"
+				+"*********************************\n"
+				+ "1.Addition\n2.Substraction\n3.Multiplication\n4.Divide");
+		
+		while(true)
+		{
+			
+		}
+
+	}
+
+}

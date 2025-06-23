@@ -1,0 +1,32 @@
+package Programs;
+
+import java.util.Scanner;
+public class Main_class {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Calculator_class ss =new Calculator_class();
+		System.out.println("Java Terminal based Calculator\n"
+				+"*********************************\n"
+				+ "Select the operation to perform\n"
+				+"*********************************\n"
+				+ "1.Addition\n2.Substraction\n3.Multiplication\n4.Divide\n5.Exit");
+		int choice=sc.nextInt();
+		int a,b;
+		while(choice!=5)
+		{
+		 	switch(choice)
+		 	{
+		 	case 1: 
+		 		System.out.println("Enter two Numbers");
+		 		a=sc.nextInt();
+		 		b=sc.nextInt();
+		 		System.out.println("The Addition of two number is :" +ss.add(a, b));
+		 		break;
+		 	}
+		 	
+		}
+
+	}
+
+}
