@@ -28,34 +28,22 @@ public class Library_service_impli implements Library_service {
 	}
 
 	@Override
-	public boolean Add_book(Book book) {
-
-		if (bkd.Addbook(book)) {
-			return true;
-		}
-
-		return false;
-	}
-
-	@Override
 	public boolean Issue_book(int id, int book_id) {
 		List<Book> books = bkd.Available_books();
 		User user = usd.Find_byid(id);
 		if (user == null) {
 			return false;
 		}
-	
+
 		for (Book bks : books) {
-			if(user.getIssued_books()==null)
-			{
+			if (user.getIssued_books() == null&&book_id == bks.getBook_id()) {
 				List<Book> issuedbook = new ArrayList<>();
 				issuedbook.add(bks);
 				user.setIssued_books(issuedbook);
 				bks.setIs_available(false);
 				bks.setIs_issued(true);
 				return true;
-			}
-			else if (book_id == bks.getBook_id()) {
+			} else if (book_id == bks.getBook_id()) {
 				bks.setIs_issued(true);
 				bks.setIs_available(false);
 				List<Book> issuedbook = user.getIssued_books();
@@ -113,15 +101,17 @@ public class Library_service_impli implements Library_service {
 		bk.setBook_name(sc.next());
 		System.out.println("Enter book Author name");
 		bk.setAuthor_name(sc.next());
+
 		System.out.println("is Book Available Enter yes or no");
 		String check = sc.next();
-		if (check.toLowerCase() == "yes") {
+		if (check.toLowerCase().equals("yes")) {
+			System.out.println("in if block of yes");
 			bk.setIs_available(true);
 			bk.setIs_issued(false);
 		} else {
+			System.out.println("in else block");
 			bk.setIs_available(false);
-			bk.setIs_issued(true);
-		}
+		bk.setIs_issued(true);}
 		boolean val = bkd.Addbook(bk);
 		if (val) {
 			return "Book Added successfully Id is " + bk.getBook_id();
@@ -141,11 +131,10 @@ public class Library_service_impli implements Library_service {
 
 	@Override
 	public List<User> All_users() {
-		 List<User> us = usd.All_user();
-		 if(us!=null)
-		 {
-			 return us;
-		 }
+		List<User> us = usd.All_user();
+		if (us != null) {
+			return us;
+		}
 		return null;
 	}
 

@@ -7,8 +7,6 @@ import Model.User;
 
 public interface Library_service {
 
-	public boolean Add_book(Book book);
-
 	public boolean Issue_book(int id, int book_id);
 
 	public boolean Return_book(int id, int book_id);

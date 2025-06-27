@@ -68,9 +68,15 @@ public class Interactor {
 				break;
 			case 5:
 			     System.out.println(ls.Add_user());
+			    
 				break;
 			case 6:
 			     System.out.println(ls.Add_book());
+			     List<Book>all_books=ls.Available_books();
+			     for(Book bks1 :all_books)
+			     {
+			    	 System.out.println(bks1);
+			     }
 				break;
 			case 7:
 				System.out.println("THANKYOU PROGRAM EXITED SUCCESSFULLY!!!!!!!!!!!!!!!!!!");
